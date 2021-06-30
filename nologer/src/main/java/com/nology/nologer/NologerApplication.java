@@ -1,13 +1,13 @@
-package com.example.demo;
+package com.nology.nologer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MyfirstapiApplication {
+public class NologerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MyfirstapiApplication.class, args);
+		SpringApplication.run(NologerApplication.class, args);
 	}
 
 }
