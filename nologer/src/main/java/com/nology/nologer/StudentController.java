@@ -33,6 +33,7 @@ public class StudentController {
     @PostMapping("/student")
     public Student createStudent(@RequestBody Student student) {
         System.out.println("the name is" + student.getFirstName());
+        this.students.add(student);
         return student;
     }
     // delete student by id
