@@ -20,7 +20,8 @@ public class Student {
         this.interests = interests;
         }
 
-         public int getId() {
+        // getters
+        public int getId() {
         return id;
          }
 
@@ -44,6 +45,8 @@ public class Student {
             return interests;
         }
 
+
+       // setters
     public void setId(int id) {
         this.id = id;
     }

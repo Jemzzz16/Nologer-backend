@@ -12,35 +12,57 @@ public class StudentController {
     List<Student> students = new ArrayList<Student>();
 
     public StudentController() {
-        String[] interests = {"Skiing", "Holidays"};
-        Student john = new Student(1, "John", "Doe", 50, "London", interests);
+        String[] johninterests = {"Skiing", "Holidays"};
+        Student john = new Student(1, "John", "Doe", 50, "London", johninterests);
         students.add(john);
+
+        String[] alexinterests = {"Sailing", "Walking"};
+        Student alex = new Student(2, "Alex", "Frazen", 38, "Bristol", alexinterests);
+        students.add(alex);
+
+        String[] timinterests = {"Reading", "Whistling"};
+        Student tim = new Student(3, "Tim", "Short", 25, "Glashow", timinterests);
+        students.add(tim);
+
+        String[] mickinterests = {"Shooting", "Swimming"};
+        Student mick = new Student(4, "Mick", "Brown", 43, "Lincoln", mickinterests);
+        students.add(mick);
     }
     // get students
     @GetMapping("/students")
     public List<Student> getStudents() {
         return this.students;
     }
+
     // get single student by id
-    @GetMapping("/students/{studentsId}")
-    public Student getStudent(@PathVariable String studentId, @RequestParam String key) {
-    // creating a string in a int
-        int idAsInt = Integer.parseInt(studentId);
-        System.out.println("the key was" + key);
-        return this.students.get(idAsInt);
+    @GetMapping("/students/{studentId}")
+    @ResponseBody
+    public Student getStudent(@PathVariable String studentId){
+        for (Student student : students){
+            if (studentId.equals(student.getId())){
+                return student;
+            }
+        }
+        return null;
     }
 
-    @PostMapping("/student")
-    public Student createStudent(@RequestBody Student student) {
-        System.out.println("the name is" + student.getFirstName());
+    @PostMapping("/students")
+    public Student createStudent(@RequestBody Student student){
+        System.out.println("the name is " + student.getFirstName());
         this.students.add(student);
+        for (Student s : students){
+            System.out.println(s.getFirstName());
+        }
         return student;
     }
     // delete student by id
-    @DeleteMapping("/students/delete")
-    public Student deleteStudent(@PathVariable String studentId) {
-        int idAsInt = Integer.parseInt(studentId);
-        return this.students.remove(idAsInt);
+    @DeleteMapping("/students/{studentId}")
+    public void deleteStudent(@PathVariable String studentId){
+        for (Student student : students) {
+            if (studentId.equals(student.getId())) {
+                students.remove(student);
+            }
+        }
     }
 
 }
