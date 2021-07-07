@@ -2,16 +2,16 @@ package com.nology.nologer;
 
 public class Student {
 
-    private int id;
+    private String id;
     private String firstName;
     private String lastName;
-    private int age;
+    private String age;
     private String location;
     private String[] interests;
 
 
 
-    public Student(int id, String firstName, String lastName, int age, String location, String[] interests) {
+    public Student(String id, String firstName, String lastName, String age, String location, String[] interests) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -21,7 +21,7 @@ public class Student {
         }
 
         // getters
-        public int getId() {
+        public String getStudentId() {
         return id;
          }
 
@@ -33,7 +33,7 @@ public class Student {
             return lastName;
         }
 
-        public int getAge() {
+        public String getAge() {
             return age;
         }
 
@@ -47,7 +47,7 @@ public class Student {
 
 
        // setters
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -61,7 +61,7 @@ public class Student {
         this.lastName = lastName;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
 
         this.age = age;
     }
