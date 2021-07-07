@@ -3,12 +3,13 @@ package com.nology.nologer;
 import javax.persistence.*;
 
 @Entity
+@Table(name="course")
 public class Course {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    public String courseId;
-    public String name;
+    private String courseId;
+    private String name;
 
     public Course() {
         // ... Empty constructor needed to create bean

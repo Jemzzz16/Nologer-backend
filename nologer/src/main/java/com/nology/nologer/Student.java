@@ -1,8 +1,14 @@
 package com.nology.nologer;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="student")
 public class Student {
 
-    private String id;
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private String studentId;
     private String firstName;
     private String lastName;
     private String age;
@@ -11,8 +17,7 @@ public class Student {
 
 
 
-    public Student(String id, String firstName, String lastName, String age, String location, String[] interests) {
-        this.id = id;
+    public Student(String studentId, String firstName, String lastName, String age, String location, String[] interests) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
@@ -22,7 +27,7 @@ public class Student {
 
         // getters
         public String getStudentId() {
-        return id;
+        return studentId;
          }
 
         public String getFirstName() {
@@ -48,7 +53,7 @@ public class Student {
 
        // setters
     public void setId(String id) {
-        this.id = id;
+        this.studentId = id;
     }
 
     public void setFirstName(String firstName) {
